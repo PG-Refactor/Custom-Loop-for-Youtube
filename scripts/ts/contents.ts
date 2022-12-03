@@ -95,7 +95,7 @@
             elm.remove();
         }
 
-        #createElm(type: string, atr: object | null=null, content: string | null=null) {
+        #createElm(type: string, atr: object | null = null, content: string | null = null) {
             const elm = document.createElement(type);
             if (content !== null)
                 elm.textContent = content;
@@ -193,7 +193,7 @@
                     if (currentVideo !== null && this.#video.src !== currentVideo.src) {
                         this.#setVideo(currentVideo);
                     }
-
+                    
                     if (this.#video.currentTime < this.#start)
                         this.#video.currentTime = this.#start;
 
@@ -213,7 +213,7 @@
         }
     }
     
-    const sleep = (second: number, callbackFunc: any, arg: any=null) => {
+    const sleep = (second: number, callbackFunc: (arg?: any) => void, arg: any = null) => {
         let elapsedTime = 0;
 
         const interval = setInterval(() => {
