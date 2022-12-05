@@ -204,6 +204,12 @@
                                 this.#video.play();
                         });
                     }
+
+                    if (isNaN(this.#video.duration) && this.#video.paused) {
+                        const replayBtn = document.querySelector<HTMLButtonElement>('.ytp-play-button.ytp-button');
+                        if (replayBtn !== null)
+                            replayBtn.click();
+                    }
                 }
             }
         }

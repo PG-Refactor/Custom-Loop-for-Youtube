@@ -172,6 +172,11 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
                                 __classPrivateFieldGet(this, _Video_video, "f").play();
                         });
                     }
+                    if (isNaN(__classPrivateFieldGet(this, _Video_video, "f").duration) && __classPrivateFieldGet(this, _Video_video, "f").paused) {
+                        const replayBtn = document.querySelector('.ytp-play-button.ytp-button');
+                        if (replayBtn !== null)
+                            replayBtn.click();
+                    }
                 }
             }
         }
