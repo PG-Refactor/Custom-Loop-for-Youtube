@@ -155,9 +155,8 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
         }
         loop() {
             if (__classPrivateFieldGet(this, _Video_url, "f") === location.href) {
-                if (__classPrivateFieldGet(this, _Video_video, "f") === null) {
+                if (__classPrivateFieldGet(this, _Video_video, "f") === null)
                     __classPrivateFieldGet(this, _Video_instances, "m", _Video_setVideo).call(this, document.querySelector('video'));
-                }
                 if (__classPrivateFieldGet(this, _Video_video, "f") !== null) {
                     const currentVideo = document.querySelector('video');
                     if (currentVideo !== null && __classPrivateFieldGet(this, _Video_video, "f").src !== currentVideo.src) {
@@ -176,6 +175,18 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
                         const replayBtn = document.querySelector('.ytp-play-button.ytp-button');
                         if (replayBtn !== null)
                             replayBtn.click();
+                    }
+                    if (isNaN(__classPrivateFieldGet(this, _Video_end, "f"))) {
+                        const player = document.querySelector('#movie_player');
+                        if (player !== null) {
+                            const player_children = player.children;
+                            for (let i = 0; i < player.children.length; i++) {
+                                if (player_children[i].classList.contains('ytp-spinner') && player_children[i].style.display === 'none') {
+                                    __classPrivateFieldGet(this, _Video_video, "f").currentTime = __classPrivateFieldGet(this, _Video_start, "f");
+                                    __classPrivateFieldSet(this, _Video_end, __classPrivateFieldGet(this, _Video_video, "f").duration, "f");
+                                }
+                            }
+                        }
                     }
                 }
             }

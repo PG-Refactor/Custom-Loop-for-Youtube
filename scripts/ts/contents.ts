@@ -184,9 +184,8 @@
 
         loop() {
             if (this.#url === location.href) {
-                if (this.#video === null) {
+                if (this.#video === null)
                     this.#setVideo(document.querySelector<HTMLVideoElement>('video'));
-                }
 
                 if (this.#video !== null) {
                     const currentVideo = document.querySelector<HTMLVideoElement>('video');
@@ -209,6 +208,19 @@
                         const replayBtn = document.querySelector<HTMLButtonElement>('.ytp-play-button.ytp-button');
                         if (replayBtn !== null)
                             replayBtn.click();
+                    }
+
+                    if (isNaN(this.#end)) {
+                        const player = document.querySelector<HTMLElement>('#movie_player');
+                        if (player !== null) {
+                            const player_children = player.children as HTMLCollectionOf<HTMLElement>;
+                            for (let i = 0; i < player.children.length; i++) {
+                                if (player_children[i].classList.contains('ytp-spinner') && player_children[i].style.display === 'none') {
+                                    this.#video.currentTime = this.#start;
+                                    this.#end = this.#video.duration;
+                                }
+                            }
+                        }
                     }
                 }
             }
