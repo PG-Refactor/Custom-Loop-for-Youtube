@@ -1,14 +1,12 @@
 {
     "manifest_version": 3,
-    "name": "Youtube Custom Loop",
+    "name": "Custom Loop for Youtube",
     "version": "1.0.0",
     "description": "You can customize loop interval.",
     "content_scripts": [{
             "matches": ["https://www.youtube.com/*"],
             "css": ["css/style.css"],
-            "js": [
-                "script/js/contents.js"
-            ]
+            "js": ["scripts/js/contents.js"]
         }
     ]
 }
