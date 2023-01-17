@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "description": "You can customize loop interval.",
     "content_scripts": [{
-            "matches": ["https://*.youtube.com/*"],
+            "matches": ["https://www.youtube.com/*"],
             "css": ["css/style.css"],
             "js": [
                 "script/js/contents.js"
