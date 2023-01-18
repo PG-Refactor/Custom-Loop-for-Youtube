@@ -2,7 +2,10 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
 	"name": "Node.js & TypeScript",
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:16-bullseye"
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:16-bullseye",
+	"mounts": [ 
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh/,target=/home/node/.ssh/,type=bind,consistency=cached"
+	]
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
